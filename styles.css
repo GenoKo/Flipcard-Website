@@ -10,13 +10,13 @@ body {
     justify-content: center;
     min-height: 100vh;
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #97a1fc 0%, #cbff9d 100%);
     padding: 2em 0;
 }
 
 h1 {
 
-    color: rgb(111, 255, 78);
+    color: rgb(235, 21, 21);
 
 }
 
@@ -94,7 +94,7 @@ h1 {
     display: block;
     border-radius: 12px;
     backface-visibility: hidden;
-    background: linear-gradient(135deg, rgba(53, 92, 201, 0.8), rgba(255, 94, 77, 0.8));
+    background: linear-gradient(135deg, rgba(81, 124, 243, 0.8), rgba(164, 246, 41, 0.8));
 }
 
 .front .inner {
@@ -129,7 +129,7 @@ h1 {
 }
 
 .rating i {
-    margin: 0 1px;
+    margin: 0 1px;  
 }
 
 .rating-text {
@@ -139,7 +139,7 @@ h1 {
 
 .price-front {
     grid-row: 4;
-    color: #fff;
+    color: #f70e0e;
     font-size: 1.8em;
     font-weight: 700;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
