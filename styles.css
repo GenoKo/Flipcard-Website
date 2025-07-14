@@ -1,0 +1,338 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2em 0;
+}
+
+h1 {
+
+    color: rgb(111, 255, 78);
+
+}
+
+.secondtitle {
+
+    font-size:32px;
+    padding-bottom: 20px;
+    text-align: center;
+
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 2em;
+}
+
+.card {
+    width: 400px;
+    height: 380px;
+    perspective: 1500px;
+    padding-bottom: 5px;
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.more {
+    display: none;
+}
+
+.more:checked ~ .content {
+    transform: rotateY(180deg);
+}
+
+.front,
+.back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.inner {
+    height: 100%;
+    display: grid;
+    padding: 1.5em;
+    transform: translateZ(80px) scale(0.94);
+}
+
+.front {
+    background-color: #fff;
+    background-size: cover;
+    background-position: center center;
+}
+
+.front:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 12px;
+    backface-visibility: hidden;
+    background: linear-gradient(135deg, rgba(53, 92, 201, 0.8), rgba(255, 94, 77, 0.8));
+}
+
+.front .inner {
+    grid-template-rows: 2fr auto 1fr 0.5fr 1fr;
+    justify-items: center;
+    text-align: center;
+}
+
+.front .button {
+    grid-row: 7;
+}
+
+.product-name {
+    grid-row: 2;
+    margin-bottom: 0.3em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.4em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.rating {
+    grid-row: 3;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.rating i {
+    margin: 0 1px;
+}
+
+.rating-text {
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.price-front {
+    grid-row: 4;
+    color: #fff;
+    font-size: 1.8em;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.back {
+    transform: rotateY(180deg);
+    background-color: #fff;
+    border: 2px solid rgb(240, 240, 240);
+}
+
+.back .inner {
+    grid-template-rows: 1fr 2fr 8fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+.specs {
+    grid-row: 2;
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.spec-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #355cc9;
+}
+
+.spec-item i {
+    font-size: 1.5em;
+    margin-bottom: 0.3em;
+    background: linear-gradient(40deg, #355cc9, rgb(67, 138, 243));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.spec-value {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #355cc9;
+}
+
+.spec-label {
+    font-size: 0.8em;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.description {
+    grid-row: 3 / 9;
+    grid-column: 1/-1;
+    font-size: 0.9em;
+    font-weight: 500;
+    line-height: 1.5em;
+    overflow: auto;
+    color: #555;
+    padding-right: 10px;
+}
+
+.description h4 {
+    color: #355cc9;
+    margin: 0 0 0.5em 0;
+    font-size: 1em;
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+    margin: 0.5em 0;
+}
+
+.features li {
+    padding: 0.2em 0;
+    position: relative;
+    padding-left: 1.2em;
+}
+
+.features li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-weight: bold;
+}
+
+.product-info {
+    grid-row: 1;
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-weight: 600;
+    color: #355cc9;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.price-back {
+    font-weight: 700;
+    color: #e74c3c;
+    font-size: 1.4em;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.8em;
+    margin-right: 0.5em;
+}
+
+.button {
+    grid-column: 1/-1;
+    justify-self: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    padding: 0 2em;
+    height: 3em;
+    line-height: 2.9em;
+    min-width: 8em;
+    background-color: transparent;
+    border: solid 2px #fff;
+    color: #fff;
+    border-radius: 6px;
+    text-align: center;
+    backface-visibility: hidden;
+    transition: 0.2s ease-in-out;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-shadow: none;
+    color: #355cc9;
+    transform: translateY(-2px);
+}
+
+.button.return {
+    grid-row: 9;
+    line-height: 3em;
+    color: #355cc9;
+    border-color: #355cc9;
+    text-shadow: none;
+    background-color: #355cc9;
+    color: #fff;
+}
+
+.button.return:hover {
+    background-color: #fff;
+    color: #355cc9;
+    box-shadow: 0 4px 15px rgba(53, 92, 201, 0.3);
+}
+
+.button.buy-now {
+    grid-row: 10;
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+}
+
+.button.buy-now:hover {
+    background-color: #218838;
+    border-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(40, 167, 69, 0.4);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c9e8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #355cc9;
+}
